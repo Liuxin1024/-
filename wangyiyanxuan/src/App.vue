@@ -7,6 +7,7 @@
 
 <script>
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+
 export default {
 
   components:{
@@ -15,6 +16,6 @@ export default {
 }
 </script>
 
-<style  rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus">
 
 </style>
