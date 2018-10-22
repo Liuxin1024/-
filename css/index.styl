@@ -1,0 +1,271 @@
+@import "mixins.styl"
+@import "reset.css"
+$mainColor = #b4282d
+html,body
+  width 100%
+  height 100%
+  overflow hidden
+  background: deeppink
+  #app
+    width: 100%
+    height: 100%
+    position: fixed
+    left 0
+    top: 0
+    .content
+      width 100%
+      height 100%
+      background pink
+      position relative
+      section
+        display: none
+        &.on
+          display block
+      #one
+        width 100%
+        height: 100%
+        position absolute
+        left: 0
+        right: 0
+        display: none
+        &.on
+          display: block
+          .content_input
+            width: 100%
+            height: 88px
+            background: #7e8c8d
+            padding 16px 30px
+            box-sizing border-box
+            .content_a
+              width 25%
+              height: 58px
+              float left
+              display: flex
+              align-items center
+            .content_text
+              display: flex
+              width: 75%
+              height: 56px
+              float left
+              border-radius 5px
+              background: white
+              justify-content center
+              align-items center
+              .content_span
+                i
+                  margin-right 5px
+                  font-size: 30px
+                span
+                  font-size: 27px
+                  color: #666
+          .nav
+            width: 100%
+            height: 50px
+            background: hotpink
+            display flex
+            clearFix()
+            a
+              flex 1
+              float: left
+              font-size 27px
+              display: flex
+              justify-content:center
+              align-items center
+              color: #b4282d
+          .autoget
+            width: 100%
+            height: 50px
+            background: burlywood
+            display flex
+            justify-content center
+            align-items center
+            .autoget_noe
+              flex 1
+              span
+                i
+                  font-size 25px
+                font-size: 25px
+          .header
+            width: 100%
+            height: 100px
+            background: greenyellow
+            display: flex
+            justify-content: center
+            align-items center
+            margin-top: 10px
+            a
+              font-size:35px
+          .shopList
+            width: 100%
+            //height: 100%
+            background: lightskyblue
+            clearFix()
+            //box-sizing border-box
+            li
+              float: left
+              width: 45%
+              height: 200px
+              //background: greenyellow
+              margin: 18px
+              background url("../images/11.png")
+              .shopList_li
+                width: 100%
+                //background: powderblue
+                padding-left: 20px
+                padding-top: 20px
+                h4
+                  font-size: 27px
+                  text-overflow ellipsis
+                  white-space nowrap
+                  overflow hidden
+                  color: #333
+                .shop_span
+                  margin-top: 10px
+                  margin-bottom 10px
+                  width: 100%
+                  span
+                    font-size: 27px
+                    color: #333
+                span
+                  .iconfont
+                    font-size 40px
+
+          .newShop
+            width: 100%
+            height: 200px
+            background: darksalmon
+            display: flex
+            justify-content center
+            align-items center
+            margin-top 10px
+            flex-direction column
+            position relative
+            a
+              span
+                position relative
+                left 0
+                top: 0
+                font-size: 35px
+                color: #8BA0B6
+              .newShop_span
+                margin-top: 5px
+                background: #D8E5F1
+          .rightIcon
+            width: 90px
+            height: 80px
+            background: greenyellow;
+            position fixed
+            right: 0px
+            top: 1000px
+            border-top-left-radius 50%
+            border-bottom-left-radius 50%
+            .iconfont
+              font-size 65px
+              margin-left 18px
+              line-height 80px
+      #two
+        width 100%
+        height: 100%
+        clearFix()
+        .header
+          width: 100%
+          height 90px
+          background: #d8e5f1
+          padding 18px
+          box-sizing border-box
+          clearFix()
+          span
+            float: left
+            i
+              font-size 60px
+          .header_right
+            float: right
+            width: 80%
+            img
+              float left
+              height: 55px
+              margin-top: 5px
+              margin-left: 100px
+            .header_span
+              .icon-sousuo
+                margin-left: 120px
+              .icon-gouwuche2
+                margin-left: 20px
+
+        .wrapper
+          width: 100%
+          height: 200px
+          background: white
+          .content
+            width: 200px
+            height:100px
+            background: pink
+            display: block
+    //        要设置一下轮播图的高度 太高了 直接overflow
+
+    .footer
+      width: 100%
+      height: 80px
+      background: hotpink
+      position: fixed
+      left: 0px
+      bottom 0px
+      display flex
+      .footer_guide
+        flex 1
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        &.actives
+          color $mainColor
+        .iconfont
+          font-size: 45px
+        .footer_text
+          font-size: 25px
+
+
+/*
+写的不好 滑动
+
+ width:100%
+          height 100%
+          float left
+          .wrapper
+            width: 200px
+            height: 200px
+            background: royalblue
+            padding: 40px
+            .content
+              //width: 200px
+              //height: 200px
+              //background: #000
+              //margin-right: 20px
+              display: flex
+              flex-direction column
+              .content_top
+                flex: 1px
+                //width: 200px
+                //height: 160px
+                background: white
+                position: relative
+                margin-bottom 10px
+                .content_img
+                  width: 200px
+                  height: 150px
+                .content_text
+                  position: absolute
+                  right: 0px
+                  top: 0px
+                  width: 100px
+                  height: 50px
+                  font-size 20px
+              .content_bottom
+                width: 200px
+                height 50px
+                font-size: 30px
+                color: #000
+                text-align: center
+                line-height: 50px
+
+*/

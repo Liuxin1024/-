@@ -1,0 +1,383 @@
+@media only screen and (-webkit-device-pixel-ratio: 2) {
+  .border-1px::before {
+    transform: scaleY(0.5);
+  }
+}
+@media only screen and (-webkit-device-pixel-ratio: 3) {
+  .border-1px::before {
+    transform: scaleY(0.333333);
+  }
+}
+@import "reset.css";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #ff1493;
+}
+html #app,
+body #app {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+html #app .content,
+body #app .content {
+  width: 100%;
+  height: 100%;
+  background: #ffc0cb;
+  position: relative;
+}
+html #app .content section,
+body #app .content section {
+  display: none;
+}
+html #app .content section.on,
+body #app .content section.on {
+  display: block;
+}
+html #app .content #one,
+body #app .content #one {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: none;
+}
+html #app .content #one.on,
+body #app .content #one.on {
+  display: block;
+}
+html #app .content #one.on .content_input,
+body #app .content #one.on .content_input {
+  width: 100%;
+  height: 88px;
+  background: #7e8c8d;
+  padding: 16px 30px;
+  box-sizing: border-box;
+}
+html #app .content #one.on .content_input .content_a,
+body #app .content #one.on .content_input .content_a {
+  width: 25%;
+  height: 58px;
+  float: left;
+  display: flex;
+  align-items: center;
+}
+html #app .content #one.on .content_input .content_text,
+body #app .content #one.on .content_input .content_text {
+  display: flex;
+  width: 75%;
+  height: 56px;
+  float: left;
+  border-radius: 5px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+}
+html #app .content #one.on .content_input .content_text .content_span i,
+body #app .content #one.on .content_input .content_text .content_span i {
+  margin-right: 5px;
+  font-size: 30px;
+}
+html #app .content #one.on .content_input .content_text .content_span span,
+body #app .content #one.on .content_input .content_text .content_span span {
+  font-size: 27px;
+  color: #666;
+}
+html #app .content #one.on .nav,
+body #app .content #one.on .nav {
+  width: 100%;
+  height: 50px;
+  background: #ff69b4;
+  display: flex;
+  *zoom: 1;
+}
+html #app .content #one.on .nav::after,
+body #app .content #one.on .nav::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+html #app .content #one.on .nav a,
+body #app .content #one.on .nav a {
+  flex: 1;
+  float: left;
+  font-size: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b4282d;
+}
+html #app .content #one.on .autoget,
+body #app .content #one.on .autoget {
+  width: 100%;
+  height: 50px;
+  background: #deb887;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html #app .content #one.on .autoget .autoget_noe,
+body #app .content #one.on .autoget .autoget_noe {
+  flex: 1;
+}
+html #app .content #one.on .autoget .autoget_noe span,
+body #app .content #one.on .autoget .autoget_noe span {
+  font-size: 25px;
+}
+html #app .content #one.on .autoget .autoget_noe span i,
+body #app .content #one.on .autoget .autoget_noe span i {
+  font-size: 25px;
+}
+html #app .content #one.on .header,
+body #app .content #one.on .header {
+  width: 100%;
+  height: 100px;
+  background: #adff2f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+html #app .content #one.on .header a,
+body #app .content #one.on .header a {
+  font-size: 35px;
+}
+html #app .content #one.on .shopList,
+body #app .content #one.on .shopList {
+  width: 100%;
+  background: #87cefa;
+  *zoom: 1;
+}
+html #app .content #one.on .shopList::after,
+body #app .content #one.on .shopList::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+html #app .content #one.on .shopList li,
+body #app .content #one.on .shopList li {
+  float: left;
+  width: 45%;
+  height: 200px;
+  margin: 18px;
+  background: url("../images/11.png");
+}
+html #app .content #one.on .shopList li .shopList_li,
+body #app .content #one.on .shopList li .shopList_li {
+  width: 100%;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+html #app .content #one.on .shopList li .shopList_li h4,
+body #app .content #one.on .shopList li .shopList_li h4 {
+  font-size: 27px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #333;
+}
+html #app .content #one.on .shopList li .shopList_li .shop_span,
+body #app .content #one.on .shopList li .shopList_li .shop_span {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+html #app .content #one.on .shopList li .shopList_li .shop_span span,
+body #app .content #one.on .shopList li .shopList_li .shop_span span {
+  font-size: 27px;
+  color: #333;
+}
+html #app .content #one.on .shopList li .shopList_li span .iconfont,
+body #app .content #one.on .shopList li .shopList_li span .iconfont {
+  font-size: 40px;
+}
+html #app .content #one.on .newShop,
+body #app .content #one.on .newShop {
+  width: 100%;
+  height: 200px;
+  background: #e9967a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  flex-direction: column;
+  position: relative;
+}
+html #app .content #one.on .newShop a span,
+body #app .content #one.on .newShop a span {
+  position: relative;
+  left: 0;
+  top: 0;
+  font-size: 35px;
+  color: #8ba0b6;
+}
+html #app .content #one.on .newShop a .newShop_span,
+body #app .content #one.on .newShop a .newShop_span {
+  margin-top: 5px;
+  background: #d8e5f1;
+}
+html #app .content #one.on .rightIcon,
+body #app .content #one.on .rightIcon {
+  width: 90px;
+  height: 80px;
+  background: #adff2f;
+  position: fixed;
+  right: 0px;
+  top: 1000px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+html #app .content #one.on .rightIcon .iconfont,
+body #app .content #one.on .rightIcon .iconfont {
+  font-size: 65px;
+  margin-left: 18px;
+  line-height: 80px;
+}
+html #app .content #two,
+body #app .content #two {
+  width: 100%;
+  height: 100%;
+  *zoom: 1;
+}
+html #app .content #two::after,
+body #app .content #two::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+html #app .content #two .header,
+body #app .content #two .header {
+  width: 100%;
+  height: 90px;
+  background: #d8e5f1;
+  padding: 18px;
+  box-sizing: border-box;
+  *zoom: 1;
+}
+html #app .content #two .header::after,
+body #app .content #two .header::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+html #app .content #two .header span,
+body #app .content #two .header span {
+  float: left;
+}
+html #app .content #two .header span i,
+body #app .content #two .header span i {
+  font-size: 60px;
+}
+html #app .content #two .header .header_right,
+body #app .content #two .header .header_right {
+  float: right;
+  width: 80%;
+}
+html #app .content #two .header .header_right img,
+body #app .content #two .header .header_right img {
+  float: left;
+  height: 55px;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+html #app .content #two .header .header_right .header_span .icon-sousuo,
+body #app .content #two .header .header_right .header_span .icon-sousuo {
+  margin-left: 120px;
+}
+html #app .content #two .header .header_right .header_span .icon-gouwuche2,
+body #app .content #two .header .header_right .header_span .icon-gouwuche2 {
+  margin-left: 20px;
+}
+html #app .content #two .wrapper,
+body #app .content #two .wrapper {
+  width: 100%;
+  height: 200px;
+  background: #fff;
+}
+html #app .content #two .wrapper .content,
+body #app .content #two .wrapper .content {
+  width: 200px;
+  height: 100px;
+  background: #ffc0cb;
+  display: block;
+}
+html #app .footer,
+body #app .footer {
+  width: 100%;
+  height: 80px;
+  background: #ff69b4;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  display: flex;
+}
+html #app .footer .footer_guide,
+body #app .footer .footer_guide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html #app .footer .footer_guide.actives,
+body #app .footer .footer_guide.actives {
+  color: #b4282d;
+}
+html #app .footer .footer_guide .iconfont,
+body #app .footer .footer_guide .iconfont {
+  font-size: 45px;
+}
+html #app .footer .footer_guide .footer_text,
+body #app .footer .footer_guide .footer_text {
+  font-size: 25px;
+}
+/*
+写的不好 滑动
+
+ width:100%
+          height 100%
+          float left
+          .wrapper
+            width: 200px
+            height: 200px
+            background: royalblue
+            padding: 40px
+            .content
+              //width: 200px
+              //height: 200px
+              //background: #000
+              //margin-right: 20px
+              display: flex
+              flex-direction column
+              .content_top
+                flex: 1px
+                //width: 200px
+                //height: 160px
+                background: white
+                position: relative
+                margin-bottom 10px
+                .content_img
+                  width: 200px
+                  height: 150px
+                .content_text
+                  position: absolute
+                  right: 0px
+                  top: 0px
+                  width: 100px
+                  height: 50px
+                  font-size 20px
+              .content_bottom
+                width: 200px
+                height 50px
+                font-size: 30px
+                color: #000
+                text-align: center
+                line-height: 50px
+
+*/
