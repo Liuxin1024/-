@@ -1,37 +1,36 @@
 <template>
-  <div class="footer-x">
-    <a href="javascript:;" class="footer-item" @click="goto('/msite')" :class="{on:$route.path==='/msite'}">
+    <div class="footer-x">
+      <a href="javascript:;" class="footer-item" @click="goto('/msite')" :class="{on:$route.path==='/msite'}">
       <span>
         <i class="iconfont icon-home"></i>
       </span>
-      <span class="foot-text">首页</span>
-    </a>
-    <a href="javascript:;" class="footer-item" @click="goto('/KnowGoods')" :class="{on:$route.path==='/KnowGoods'}">
+        <span class="foot-text">首页</span>
+      </a>
+      <a href="javascript:;" class="footer-item" @click="goto('/KnowGoods')" :class="{on:$route.path==='/KnowGoods'}">
       <span>
         <i class="iconfont icon-home"></i>
       </span>
-      <span class="foot-text">识物</span>
-    </a>
-    <a href="javascript:;" class="footer-item" @click="goto('/classify')" :class="{on:$route.path==='/classify'}">
+        <span class="foot-text">识物</span>
+      </a>
+      <a href="javascript:;" class="footer-item" @click="goto('/classify')" :class="{on:$route.path==='/classify'}">
       <span>
         <i class="iconfont icon-home"></i>
       </span>
-      <span class="foot-text">分类</span>
-    </a>
-    <a href="javascript:;" class="footer-item" @click="goto('/order')" :class="{on:$route.path==='/order'}">
+        <span class="foot-text">分类</span>
+      </a>
+      <a href="javascript:;" class="footer-item" @click="goto('/order')" :class="{on:$route.path==='/order'}">
       <span>
         <i class="iconfont icon-home"></i>
       </span>
-      <span class="foot-text">购物车</span>
-    </a>
-    <a href="javascript:;" class="footer-item" @click="goto('/profile')" :class="{on:$route.path==='/profile'}">
+        <span class="foot-text">购物车</span>
+      </a>
+      <a href="javascript:;" class="footer-item" @click="goto('/profile')" :class="{on:$route.path==='/profile'}">
       <span>
         <i class="iconfont icon-home"></i>
       </span>
-      <span class="foot-text">个人</span>
-    </a>
-
-  </div>
+        <span class="foot-text">个人</span>
+      </a>
+    </div>
 </template>
 <script>
   export default {
@@ -47,28 +46,27 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-
+  @import '../../common/stylus/mixins.styl'
   .footer-x
-    width 100%
-    height 50px
-    background: pink
-    position fixed
-    left 0
-    bottom 0
-    z-index 100
+    width: 100%
+    height: 80px
+    background: hotpink
+    position: fixed
+    left: 0px
+    bottom 0px
     display flex
+    z-index 3
     .footer-item
-      display flex
       flex 1
-      text-align center
+      display flex
       flex-direction column
+      justify-content center
       align-items center
-      text-align center
-      color: #000
-      &.on
-        color #b4282d
-      .foot-text
-        font-size 14px
-
+      &.actives
+        color $mainColor
+      .iconfont
+        font-size: 45px
+      .footer_text
+        font-size: 25px
 
 </style>
