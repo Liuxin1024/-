@@ -14,83 +14,67 @@
       </div>
     </header>
     <!--轮播图-->
-    <!--<div class="swiper-container" id="swiper2">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="../images/1.jpg" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="../images/2.jpg" alt="">
-        </div>
-        <div class="swiper-slide">
-          <img src="../images/3.jpg" alt="">
-        </div>
-      </div>
-      &lt;!&ndash; 如果需要分页器 &ndash;&gt;
-      <div class="swiper-pagination"></div>
-
-      &lt;!&ndash; 如果需要导航按钮 &ndash;&gt;
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
-      &lt;!&ndash; 如果需要滚动条 &ndash;&gt;
-      <div class="swiper-scrollbar"></div>
-    </div>-->
+    <Sildeshow/>
     <!--滑动-->
-    <div class="wrapper">
+    <div class="wrapper" style="overflow-x: hidden">
       <ul>
-        <a href="javascript:;" class="content">
+        <a href="javascript:;" class="content" v-for="(item,index) in detail.column" :key="index">
           <div class="content_top">
-            <div class="content_text">358篇文章</div>
-            <img src="../images/1.jpg" alt="" class="content_img">
+            <div class="content_text">{{item.articleCount}}</div>
+            <img :src="item.picUrl" alt="" class="content_img">
           </div>
-          <div class="content_bottom">严选推荐</div>
-        </a>
-        <a href="javascript:;" class="content">
-          <div class="content_top">
-            <div class="content_text">358篇文章</div>
-            <img src="../images/1.jpg" alt="" class="content_img">
-          </div>
-          <div class="content_bottom">严选推荐</div>
-        </a>
-        <a href="javascript:;" class="content">
-          <div class="content_top">
-            <div class="content_text">358篇文章</div>
-            <img src="../images/1.jpg" alt="" class="content_img">
-          </div>
-          <div class="content_bottom">严选推荐</div>
-        </a>
-        <a href="javascript:;" class="content">
-          <div class="content_top">
-            <div class="content_text">358篇文章</div>
-            <img src="../images/1.jpg" alt="" class="content_img">
-          </div>
-          <div class="content_bottom">严选推荐</div>
+          <div class="content_bottom">{{item.title}}</div>
         </a>
       </ul>
 
     </div>
     <!--主体内容-->
-    <div class="content_wrapper">
+    <div class="content_wrapper" v-if="detail.recommendOne">
       <div class="content">
         <div class="recommend">
           <p>为你推荐</p>
         </div>
         <div class="imgcontent">
-          <img src="../images/12.jpg" alt="">
+          <img :src="detail.recommendOne.picUrl" alt="">
         </div>
         <div class="content-footer">
+          <div class="text-content">
+            <div class="text-left">
+              <span class="text-span">{{detail.recommendOne.title}}</span>
+            </div>
+            <div class="text-right">
+              <span>{{detail.recommendOne.priceInfo}}</span>
+              <span>元起</span>
+            </div>
 
+          </div>
+          <div class="good-shop">
+            <span>{{detail.recommendOne.subTitle}}</span>
+          </div>
         </div>
       </div>
     </div>
+<div class="wuyong">
 
+</div>
   </section>
 </template>
 <script>
+  import Sildeshow from '../../components/Slideshow/slideshow.vue'
+  import BScroll from 'better-scroll'
+  import {mapState} from 'vuex'
   export default {
     data () {
       return {}
+    },
+    components:{
+      Sildeshow
+    },
+    mounted(){
+      new BScroll('.wrapper',{scrollX:true,scrollY:false,click:true})
+    },
+    computed:{
+      ...mapState(['detail'])
     }
   }
 </script>
@@ -127,12 +111,12 @@
             margin-left: 20px
 
     .wrapper
-    //width: 100%
-    //height: 200px
-    //background: white
+      width: 100%
+      height: 200px
       clearFix()
+      overflow hidden
       ul
-        width: 200%
+        width: 230%
         padding: 10px
         clearFix()
         .content
@@ -156,8 +140,9 @@
               height: 150px
           .content_bottom
             width: 100%
-            font-size: 28px
+            font-size: 23px
             text-align: center
+            color: #000
 
     .content_wrapper
       padding: 20px 20px
@@ -179,5 +164,30 @@
             border-radius 30px
         .content-footer
           width: 100%
-          height: 50px
+          height: 200px
+          padding: 10px
+          .text-content
+            height: 60px
+            line-height 60px
+            margin-bottom 10px
+            .text-left
+              float left
+              .text-span
+                font-size 35px
+                color: #000
+            .text-right
+              float right
+              margin-right 10px
+              span
+                font-size 38px
+                color: red
+
+          .good-shop
+            height: 40px
+            font-size 30px
+            color: #000
+    .wuyong
+      width: 100%
+      height: 1000px
+      background: white
 </style>

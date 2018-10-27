@@ -36,7 +36,10 @@
       <div class="content_middle">
         <img src="../images/15.png" alt="">
         <div>去添点什么吧~~~</div>
-        <p>登录</p>
+        <router-link to="/profile">
+          <p>登录</p>
+        </router-link>
+
       </div>
     </div>
 

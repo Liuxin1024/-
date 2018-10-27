@@ -18,10 +18,11 @@ export default {
     //异步获取data 并保存到store 里
     this.$store.dispatch('getData')
     this.$store.dispatch('getHome')
+    this.$store.dispatch('getDetail')
 
   },
   computed:{
-    ...mapState(['data','home'])
+    ...mapState(['data','home','detail'])
   }
 }
 </script>

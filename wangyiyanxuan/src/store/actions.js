@@ -82,7 +82,7 @@ export default {
   async getBanner({commit},cb){
     const result = await reqBanner()
     if (result.code === 0) {
-      const banner = result.data
+      const banner = result.focusList
       commit(REQBANNER, {banner})
     }
     cb && cb()

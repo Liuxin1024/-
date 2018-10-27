@@ -13,9 +13,9 @@
         </div>
       </div>
       <!--推荐-->
-      <div class="wrapper">
-        <ul class="wrapper-ul" :res="wrapper">
-          <li v-for="(item,index) in data" :key="index">
+      <div class="wrapper" v-if="data">
+        <ul class="wrapper-ul" ref="wrapper" >
+          <li v-for="(item,index) in data" :key="index" ref="wrapperLi">
             <a href="javascript:;">{{item.name}}</a>
           </li>
         </ul>
@@ -67,15 +67,41 @@
           </div>
         </a>
       </div>
+      <!--商品列表-->
+      <div class="shopList">
+        <ul class="shopList-ul">
+          <li v-for="(item,index) in home.popularItemNewUserList" :key="index">
+            <a href="javascript:;">
+              <div class="imgContent">
+                <img :src="item.listPicUrl" alt="">
+              </div>
+              <div class="shopName">
+                <span>{{item.name}}</span>
+              </div>
+              <div class="shopName">
+                <span>{{item.name}}</span>
+              </div>
+              <div class="shopSpan">
+                <span>￥99</span>
+              </div>
+
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!--底部-->
+      <div class="footer">
+
+      </div>
       <!--右边固定的-->
       <span class="rightIcon">
         <i class="iconfont icon-weibo-copy"></i>
       </span>
+
     </section>
 </template>
 <script>
-  import 'swiper/dist/css/swiper.min.css'
-  import Swiper from 'swiper'
+
   import {mapState} from 'vuex'
   import BScroll from 'better-scroll'
   import Sildeshow from '../../components/Slideshow/slideshow.vue'
@@ -87,7 +113,7 @@
       }
     },
     mounted(){
-      //异步获取data 并保存到store 里
+      /*//异步获取data 并保存到store 里
       this.$store.dispatch('getBanner',()=>{
         this.$nextTick(()=>{
           //轮播图 初始化列表显示之后执行
@@ -107,15 +133,11 @@
             })
           },1000)
         })
-      });
+      });*/
       //导航滑动
-      let scroll = new BScroll('.wrapper',{click:true,scrollX:true})
-      //导航的宽度
-   /*   const wrapperUl = this.$refs.wrapper;
-      for (var i = 0; i < wrapperUl.length; i++) {
-        console.log('wrapperUl.length');
-
-      }*/
+      new BScroll('.wrapper',{click:true,scrollX:true})
+      new BScroll('.shopList',{click:true,scrollX:true})
+      this.$store.dispatch('getData')
 
     },
     components:{
@@ -123,8 +145,22 @@
     },
     computed:{
       ...mapState(['data','home','banner']),
-
     },
+
+    watch:{
+      data(){
+        this.$nextTick(()=>{
+          const ul = this.$refs.wrapper
+          const liWidth = 160;
+//          const space = 6
+          const count = this.data.length
+          console.log(count);
+          const width = liWidth * count
+          console.log(width);
+          ul.style.width = width + 'px'
+        })
+      }
+    }
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
@@ -171,8 +207,9 @@
       .wrapper
         width: 100%
         height: 60px
+        overflow hidden
         .wrapper-ul
-          width: 600%
+          width 600%
           li
             float left
             display: flex
@@ -181,9 +218,14 @@
             width: 100px
             height 50px
             padding:0 30px
+            &.on
+              color #b4282d
+              transform scale(1)
             a
               font-size 27px
-              color #b4282d
+              color black
+
+
 
       .swiper-container
         img
@@ -259,13 +301,14 @@
 
       .newShop
         width: 100%
-        height: 200px
+        height: 350px
         display: flex
         justify-content center
         align-items center
         margin-top 10px
         flex-direction column
         position relative
+        margin-bottom 20px
         a
           span
             position relative
@@ -276,6 +319,43 @@
           .newShop_span
             margin-top: 5px
             background: #D8E5F1
+      .shopList
+        width: 100%
+        overflow hidden
+        .shopList-ul
+          width: 600%
+          height: 450px
+          li
+            float left
+            width: 300px
+            height: 100%
+            background: burlywood
+            margin-left 30px
+            .imgContent
+              height: 300px
+              background: #f4f4f4
+              img
+                width: 100%
+                height:100%
+            .shopName
+              height: 40px
+              padding 0 10px
+              margin-top: 5px
+              line-height 40px
+              text-align: center
+              span
+                text-overflow: ellipsis
+                white-space nowrap
+                width: 200px
+                display: block
+                overflow hidden
+                color: #000
+            .shopSpan
+              color: red
+              margin-left: 10px
+              font-size 25px
+      .footer
+        height 500px
       .rightIcon
         width: 90px
         height: 80px

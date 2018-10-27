@@ -10,99 +10,50 @@
     </div>
     <div class="content_nav">
       <ul>
-        <li>
-          <p>推荐专区</p>
+        <li v-for="(li,index) in nav.categoryL1List" :key="index" @click="getIndex(index)">
+          <p>{{li.name}}</p>
         </li>
-        <li>
-          <p>推荐专区</p>
-        </li>
-        <li>
-          <p>推荐专区</p>
-        </li>
-        <li>
-          <p>推荐专区</p>
-        </li>
-        <li>
-          <p>推荐专区</p>
-        </li>
-        <li>
-          <p>推荐专区</p>
-        </li>
-        <li>
-          <p>推荐专区</p>
-        </li>
-        <li>
-          <p>推荐专区</p>
-        </li>
+
       </ul>
     </div>
-    <div class="commodity">
+    <div class="commodity" v-if="nav.categoryL1List">
       <div class="commodity_img">
-        <img src="../images/14.jpg" alt="">
+        <img :src="nav.categoryL1List[0].bannerUrl" alt="" class="smallImg">
       </div>
       <ul>
-        <li>
-          <img src="../images/13.png" alt="">
+        <li v-for="(item,index) in nav.categoryL1List[arrindex].subCateList" :key="index">
+          <img :src="item.wapBannerUrl" alt="" >
           <div>
-            <p>服装每满199减20</p>
+            <p>{{item.name}}</p>
           </div>
         </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
-        <li>
-          <img src="../images/13.png" alt="">
-          <div>
-            <p>服装每满199减20</p>
-          </div>
-        </li>
+
       </ul>
     </div>
   </section>
 </template>
 <script>
+  import BScroll from 'better-scroll'
+  import {mapState} from 'vuex'
   export default {
     data () {
-      return {}
+      return {
+        arrindex:0
+      }
+    },
+    mounted(){
+      new BScroll('.content_nav',{click:true})
+      this.$store.dispatch('getNav')
+      this.$store.dispatch('getDetail')
+      this.$store.dispatch('getData')
+    },
+    computed:{
+      ...mapState(['nav','detail','data'])
+    },
+    methods:{
+      getIndex(index){
+        this.arrindex=index
+      }
     }
   }
 </script>
@@ -142,6 +93,7 @@
       left: 0
       top:96px
       border-right 1px solid #666
+      overflow hidden
       ul
         li
           width: 100%
@@ -169,9 +121,8 @@
       .commodity_img
         width: 100%
         margin-bottom 50px
-        img
+        .smallImg
           width: 100%
-          height: 230px
 
       ul
         clearFix()
@@ -181,6 +132,8 @@
           margin-right: 20px
           float left
           text-align: center
+          >img
+            height 65%
           div
             height: 100px
             text-align: center
